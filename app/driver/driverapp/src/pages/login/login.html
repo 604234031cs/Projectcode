@@ -1,0 +1,42 @@
+<ion-content padding center text-center class="bg">
+  <img src="assets/imgs/LogoApp.png" alt="logo">
+  <ion-card>
+    <ion-card-header>
+      <h1>Welcome</h1>
+    </ion-card-header>
+    <ion-card-content>
+
+      <form [formGroup] = "inputlogin" (ngSubmit)="login()">
+      <ion-row>
+      <ion-col col-12>
+        <ion-item >
+          <ion-label><ion-icon name="person" color="dark"></ion-icon></ion-label>
+          <ion-input type="text" name="username" formControlName="username" required="" placeholder="Username" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item  >
+          <ion-label><ion-icon name="key" color="dark" ></ion-icon></ion-label>
+          <ion-input type="password" name="password" formControlName="password" required="" placeholder="Password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row>
+      <ion-col colr-12>
+        <p text-right>Forgot password ?<a> Get here</a></p>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button full round  type="submit" id ="button-login"   [disabled]="!inputlogin.valid"  ><span>เข้าสู่ระบบ</span></button>
+      </ion-col>
+    </ion-row>
+    </form>
+    </ion-card-content>
+    
+  </ion-card>
+</ion-content>
+

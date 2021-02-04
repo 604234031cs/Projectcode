@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LicensePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="warning">
+    <ion-title>ป้ายทะเบียน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="bg">
+  <form [formGroup]="input" (ngSubmit)="searh()">
+    <ion-item id="input1">
+      <ion-input type="text" placeholder="กก1" name="text1" maxlength="3" formControlName="text1" required="" ></ion-input>
+    </ion-item>
+
+    <ion-item id="input2">
+      <ion-input type="text" placeholder="1234" name="text2" maxlength="4" formControlName="text2" required=""></ion-input>
+    </ion-item>
+
+    <ion-item id="input3">
+      <ion-label>จังหวัด</ion-label>
+      <ion-select formControlName="text3" >
+        <ion-option   *ngFor="let data of province"  value="{{data.name_th}}">{{data.name_th}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <br>
+    <button ion-button full color="warning" [disabled]="!input.valid">ค้นหา</button>
+  </form>
+    </ion-content>

@@ -1,0 +1,111 @@
+<!--
+  Generated template for the AccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="warning">
+
+    <ion-title>บัญชีผู้ใช้</ion-title>
+    <ion-buttons large end >
+      <button ion-button style=" font-size: 25px;" (click)="OpenOption()">  <ion-icon name="settings" color="light"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>แก้ไขข้อมูล</ion-label>
+        <ion-toggle [(ngModel)]="edit"  disabled="false" color="warning"></ion-toggle>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col >
+
+              <ion-item>
+                <ion-label><ion-icon name="person" color="dark">&nbsp;username</ion-icon><span>&nbsp;{{accountuser['username']}}</span></ion-label>
+              </ion-item>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-grid *ngIf="edit==false">
+        <ion-row >
+          <ion-col >
+            <ion-item>
+              <ion-label floating>ชื่อ</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.name" value="{{updateResult.name}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-label floating>นามสกุล</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.lastname" value="{{updateResult.lastname}}"disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.email" value="{{updateResult.email}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>phone</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.phone" value="{{updateResult.phone}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="edit==true">
+        <ion-row >
+          <ion-col >
+            <ion-item>
+              <ion-label floating>ชื่อ</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.name" value="{{updateResult.name}}" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-label floating>นามสกุล</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.lastname" value="{{updateResult.lastname}}"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.email" value="{{updateResult.email}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>phone</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.phone" value="{{updateResult.phone}}" ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <button ion-button *ngIf="edit==true" (click)="editAccount()" block color = "warning">อัพเดท</button>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

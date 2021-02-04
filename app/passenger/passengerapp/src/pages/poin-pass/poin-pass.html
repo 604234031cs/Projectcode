@@ -1,0 +1,23 @@
+<!--
+  Generated template for the PoinPassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="warning">
+    <ion-title ><span color="light" >จุดรถผ่าน</span> </ion-title>
+    <ion-buttons large end >
+      <button ion-button style=" font-size: 25px;" (click)="loadPoint()">
+        <ion-icon name="pin" color="light"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg" >
+  <div #map id="map"></div>
+</ion-content>

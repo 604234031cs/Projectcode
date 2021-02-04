@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>บัญชีผู้ใช้</ion-title>
+    <ion-buttons large end >
+      <button ion-button style=" font-size: 25px;" (click)="OpenOption()"><ion-icon name="settings" color="light"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="bg">
+  <ion-card text-center>
+      <ion-item >
+        <ion-avatar slot="start">
+          <img src="https://webprojectend.herokuapp.com/img/{{updateResult['d_img']}}" >
+        </ion-avatar>
+      </ion-item>
+      <ion-label>{{accountuser['username']}}</ion-label>
+
+      <ion-item>
+        <!-- <ion-label>ชื่อ</ion-label> -->
+        <ion-label><span>ชื่อ &nbsp;</span>{{updateResult.name}}</ion-label>
+        <!-- <ion-input value="{{updateResult.name}}" disabled></ion-input> -->
+      </ion-item>
+
+      <ion-item>
+        <ion-label><span>นามสกุล &nbsp;</span>{{updateResult.lastname}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-label>เพศ</ion-label> -->
+        <ion-label  *ngIf="updateResult.sex=='0'"><span>เพศ &nbsp;</span>ชาย</ion-label>
+        <ion-label  *ngIf="updateResult.sex=='1'"><span>เพศ &nbsp;</span>หญิง</ion-label>
+        <!-- <ion-input value="{{updateResult.sex}}" disabled></ion-input> -->
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-label>เบอร์โทรศัพท์</ion-label> -->
+        <ion-label><span>เบอร์โทรศัพท์ &nbsp;</span>{{updateResult.phone}}</ion-label>
+        <!-- <ion-input value="{{updateResult.phone}}" disabled></ion-input> -->
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-label>ทะเบียนรถ</ion-label> -->
+        <ion-label><span>ทะเบียนรถ &nbsp;</span>{{updateResult.van_license}}</ion-label>
+        <!-- <ion-input value="{{updateResult.van_license}}" disabled></ion-input> -->
+      </ion-item>
+    <ion-card-content>
+      <!-- <ion-item>
+        <ion-label>แก้ไขข้อมูล</ion-label>
+        <ion-toggle [(ngModel)]="edit"  disabled="false" color="primary"></ion-toggle>
+      </ion-item> -->
+
+      <!-- <ion-grid>
+        <ion-row>
+          <ion-col >
+
+            <ion-item>
+              <ion-label><ion-icon name="person" color="dark"></ion-icon>&nbsp;{{accountuser['username']}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label><span>&nbsp; ป้ายทะเบียนรถ</span>&nbsp;{{updateResult['van_license']}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col >
+
+            <ion-item>
+              <ion-label floating>ชื่อ</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.name" value="{{updateResult.name}}" disabled></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col >
+
+            <ion-item>
+              <ion-label floating>นามสกุล</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.lastname" value="{{updateResult.lastname}}"disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>เพศ</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.sex" value="{{updateResult.sex}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>เบอร์โทรศัพท์</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.phone" value="{{updateResult.phone}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+      <ion-grid *ngIf="edit==false">
+
+      </ion-grid> -->
+
+        <!-- flase -->
+      <!-- <ion-grid *ngIf="edit==true">
+        <ion-row >
+          <ion-col >
+            <ion-item>
+              <ion-label floating>ชื่อ</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.name" value="{{updateResult.name}}" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-label floating>นามสกุล</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.lastname" value="{{updateResult.lastname}}"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>เพศ</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.sex" value="{{updateResult.sex}}" disabled></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>เบอร์โทรศัพท์</ion-label>
+              <ion-input type="text"  [(ngModel)]="updateResult.phone" value="{{updateResult.phone}}" ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <button ion-button *ngIf="edit==true" (click)="editAccount()" block color = "primary">อัพเดท</button>
+      </ion-grid> -->
+    </ion-card-content>
+  </ion-card>

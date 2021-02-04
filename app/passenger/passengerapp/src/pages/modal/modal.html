@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar color="warning">
+    <ion-title>จุดรถผ่าน</ion-title>
+    <ion-buttons large end >
+      <button ion-button  (click)="closeModal()"><span color="light">Close</span>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-list >
+    <ion-item *ngFor="let showpoint of poins " >
+      {{showpoint.po_name}}
+    </ion-item>
+  </ion-list>
+</ion-content>

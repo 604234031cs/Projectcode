@@ -1,0 +1,57 @@
+<!--
+  Generated template for the ListDriverPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="warning">
+    <ion-title>คนขับรถตู้</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-list *ngFor="let showlist of arry" >
+    <ion-card *ngIf="showlist.valuedirec <= 100.0">
+      <ion-item >
+        <ion-thumbnail item-left >
+        <img src="https://webprojectend.herokuapp.com/img/{{showlist.d_img}}" >
+        <!-- <img src="http://localhost/projectend/web/img/{{showlist.d_img}}"> -->
+        <p >{{showlist.directions}}</p>
+      </ion-thumbnail>
+      <ion-label>
+          <h3>{{showlist.d_name}}&nbsp;{{showlist.d_lastname}}</h3>
+          <p><ion-icon name="call" ></ion-icon>&nbsp;{{showlist.phone}}</p>
+          <p><ion-icon name="bus"></ion-icon>&nbsp;{{showlist.van_license}}&nbsp;</p>
+          <p *ngIf="showlist.number_passenger == '0'"><ion-icon name="people"></ion-icon>&nbsp;ที่นั่งว่าง</p>
+          <p *ngIf="showlist.number_passenger == '1'"><ion-icon name="people"></ion-icon>&nbsp;ที่นั่งเต็ม</p>
+          <p *ngIf="showlist.status_driver == '1'"><ion-icon name="time"></ion-icon>&nbsp;เตรียมเดินทาง</p>
+          <p *ngIf="showlist.status_driver =='2'"><ion-icon name="time"></ion-icon>&nbsp;กำลังเดินทาง</p>
+      </ion-label >
+    </ion-item>
+       <ion-card-content text-center>
+            <p >
+                <button ion-button small  color="secondary" (click)="openLocation(showlist.d_id,showlist.van_license)"  ><ion-icon name="locate" small></ion-icon>&nbsp;ตำแหน่ง</button>
+                
+                <button  ion-button  small color="warning" (click)="TrackDriver(showlist.d_id,showlist.van_license)" *ngIf="check.driver_id != showlist.d_id "><ion-icon small name="navigate"></ion-icon>&nbsp;ติดตาม</button>
+                <button  ion-button small color="danger" (click)="cancelTrackDriver()" *ngIf="check.driver_id == showlist.d_id "><ion-icon small name="close"></ion-icon>&nbsp;ยกเลิก</button>
+                <button ion-button  small color="danger" (click)="call(showlist.phone)"  > <ion-icon name="call" ></ion-icon>&nbsp;ติดต่อ</button>
+              </p>
+
+            </ion-card-content>
+  </ion-card>
+  </ion-list>
+</ion-content>

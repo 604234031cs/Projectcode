@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>การทำงาน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg">
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        <ion-item>
+          <ion-label *ngIf="update==false" >Offline</ion-label>
+          <ion-label *ngIf="update==true" >Online</ion-label>
+            <ion-toggle [(ngModel)]="update"  disabled="false" color="primary" ></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="update==true">
+      <ion-col >
+        <ion-item >
+          <ion-label>สถานะการทำงาน</ion-label>
+          <ion-select [(ngModel)]="statusupdate"  placeholder='{{text}}'>
+            <ion-option value="1">เตรียมเดินทาง</ion-option>
+            <ion-option value="2">กำลังเดินทาง</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-around>
+      <ion-col>
+        <button ion-button block large color="primary" (click) = "updatestatus()">อัพเดทสถานะการทำงาน</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

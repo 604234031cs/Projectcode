@@ -1,0 +1,36 @@
+<!--
+  Generated template for the RoutePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="warning">
+    <ion-title>เส้นทางรถ</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg">
+
+  <ion-searchbar (ionInput)="getItems($event)" clearInput ></ion-searchbar>
+  <br>
+
+  <ion-list *ngFor="let getroute of routes" no-lines>
+    <ion-item  (click)="showlistdriver(getroute.rid)">
+      <b>ต้นทาง:</b> {{getroute.start_route_name}}<br>
+      <b>ปลายทาง:</b> {{getroute.end_route_name}}
+    </ion-item>
+    <button ion-button item-right style=" font-size: 20px;"
+    (click)="viewpoint(getroute.rid,getroute.start_route_name,getroute.end_route_name,getroute.start_route_pos_lat,getroute.start_route_pos_log,getroute.end_route_pos_lat,getroute.end_route_pos_log)" item-end clear >
+      <ion-icon name="pin" color="danger"></ion-icon>&nbsp;ตรวจสอบจุดรถผ่าน
+    </button>
+
+  </ion-list>
+
+
+
+</ion-content>
